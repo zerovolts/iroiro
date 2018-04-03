@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+@import "pallette-list";
+
+body {
+  background: #f0f0ea;
+  font-family: Ubuntu;
+}

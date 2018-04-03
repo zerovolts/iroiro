@@ -1,10 +1,10 @@
 import React from "react"
 
+import PalletteList from "./pages/pallette-list"
+
 const App = props => {
   return (
-    <div>
-      Hello
-    </div>
+    <PalletteList />
   )
 }
 

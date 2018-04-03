@@ -1,0 +1,80 @@
+.pallette-list {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+}
+
+.pallette-block {
+  background: #fff;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 4px #e0e0d8;
+  width: 16rem;
+}
+
+.pallette-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pallette {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.pallette-color {
+  width: 20%;
+  height: 3rem;
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //background: attr(data-hex color);
+}
+
+.pallette-color * {
+  transition: opacity 0.2s;
+}
+
+.pallette-color:hover * {
+  opacity: 1;
+}
+
+.pallette :first-child {
+  border-top-left-radius: 0.3rem;
+  //border-radius: 0.3rem 0 0 0.3rem;
+}
+
+.pallette :last-child {
+  border-bottom-right-radius: 0.3rem;
+  //border-radius: 0 0.3rem 0.3rem 0;
+}
+
+.pallette :nth-child(5) {
+  border-top-right-radius: 0.3rem;
+}
+
+.pallette :nth-child(5n+1):nth-last-child(-n+5) {
+  border-bottom-left-radius: 0.3rem;
+}
+
+.pallette :nth-child(5n):nth-last-child(-n+4) {
+  border-bottom-right-radius: 0.3rem;
+}
+
+textarea#clipboard {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}

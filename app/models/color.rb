@@ -1,4 +1,10 @@
 class Color < ApplicationRecord
+  has_many :pallette_colors
+  has_many :pallettes, through: :pallette_colors
+
+  def self.random_data
+    rand(16777215)
+  end
 
   def self.to_rgb(data)
     {
@@ -42,7 +48,7 @@ class Color < ApplicationRecord
   end
 
   def hex
-    "#" + self.color_data.to_s(16)
+    "#" + self.color_data.to_s(16).rjust(6, "0")
   end
 
   def hsl
@@ -60,7 +66,7 @@ class Color < ApplicationRecord
     else
       sat = (lum < 0.5) ? delta / (max + min) : delta / (2 - max - min)
 
-      hue = case delta
+      hue = case max
       when colors[:red]
         (colors[:green] - colors[:blue]) / delta + (colors[:green] < colors[:blue] ? 6 : 0)
       when colors[:green]
