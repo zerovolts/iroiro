@@ -1,16 +1,28 @@
+@import "colors";
+
 .pallette-list {
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
+  justify-content: center;
+  margin: auto;
 }
 
 .pallette-block {
-  background: #fff;
+  background: $foreground;
   padding: 1rem;
   margin: 0.5rem;
   border-radius: 0.3rem;
-  box-shadow: 0 4px #e0e0d8;
+  box-shadow: 0 4px $foreground-shadow;
   width: 16rem;
+}
+
+.pallette-page-info {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.4rem;
 }
 
 .pallette-info {
@@ -23,21 +35,31 @@
   display: flex;
   flex-wrap: wrap;
   cursor: pointer;
+  border-radius: 0.3rem;
+  //padding: 0.2rem;
+  //background: $foreground-shadow;
+  //box-shadow: 0 1px 6px 1px $foreground-shadow;
 }
 
 .pallette-color {
   width: 20%;
   height: 3rem;
-  color: #fff;
+  color: $text;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   //background: attr(data-hex color);
+  transition: filter 0.4s;
+}
+
+.pallette-color:active {
+  transition: filter 0s;
+  filter: brightness(50%);
 }
 
 .pallette-color * {
-  transition: opacity 0.2s;
+  //transition: opacity 0.2s;
 }
 
 .pallette-color:hover * {
@@ -71,8 +93,8 @@ textarea#clipboard {
   position: fixed;
   top: 0;
   left: 0;
-  width: 1px;
-  height: 1px;
+  width: 0px;
+  height: 0px;
   padding: 0;
   border: none;
   outline: none;

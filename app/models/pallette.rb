@@ -23,10 +23,17 @@ class Pallette < ApplicationRecord
     }
   end
 
+  def delta
+    #TODO: account for loop in hue scale
+    hues = self.colors.map {|color| color.hsl[:hue]}
+    hues.max - hues.min
+  end
+
   def as_json(options = {})
     super(methods: [
       :colors,
-      :average_hsl
+      :average_hsl,
+      :delta
     ])
   end
 end

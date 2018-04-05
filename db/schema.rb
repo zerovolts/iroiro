@@ -16,7 +16,10 @@ ActiveRecord::Schema.define(version: 20180402205524) do
   enable_extension "plpgsql"
 
   create_table "colors", force: :cascade do |t|
-    t.integer "color_data"
+    t.integer "color_data", null: false
+    t.float "hue"
+    t.float "sat"
+    t.float "lum"
     t.index ["color_data"], name: "index_colors_on_color_data"
   end
 

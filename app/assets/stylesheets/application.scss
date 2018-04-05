@@ -16,9 +16,42 @@
 
 @import url("https://fonts.googleapis.com/css?family=Ubuntu");
 
+@import "nav-bar";
 @import "pallette-list";
+@import "colors";
 
 body {
-  background: #f0f0ea;
-  font-family: Ubuntu;
+  margin: 0;
+  padding: 0;
+  color: $text;
+  background: $background;
+  font-family: Ubuntu Mono;
+}
+
+// .monospace {
+//   font-family: Ubuntu Mono;
+// }
+
+.loading-screen {
+  height: 100vh;
+  font-size: 3rem;
+  color: $text;
+  display: flex;
+  //margin-top: 4rem;
+  justify-content: center;
+  align-items: center;
+
+  animation: 2s spinning infinite;
+}
+
+@keyframes spinning {
+  from {
+    transform: rotate(0deg);
+    //color: #fff;
+  }
+
+  to {
+    transform: rotate(360deg);
+    //color: #000;
+  }
 }

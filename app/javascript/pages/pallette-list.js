@@ -1,6 +1,7 @@
 import React from "react"
 
 import Pallette from "./pallette-list/pallette"
+import LoadingScreen from "../components/loading-screen"
 
 class PalletteList extends React.Component {
   constructor(props) {
@@ -55,15 +56,20 @@ class PalletteList extends React.Component {
       )
     })
 
+    const pageOrLoadingScreen = palletteBlocks.length != 0
+      ? <div className="pallette-page">
+          <div className="pallette-page-info">
+            <div>Pallettes: {palletteBlocks.length}</div>
+            <div className="monospace">Color: {this.state.currentColor ? this.state.currentColor : "#000000"}</div>
+          </div>
+          <div className="pallette-list">{palletteBlocks}</div>
+        </div>
+      : <LoadingScreen />
+
+
     return (
-      <div className="pallette-page">
-        <div className="pallette-page-info">
-          <div>Pallettes: {palletteBlocks.length}</div>
-          <div>Color: {this.state.currentColor}</div>
-        </div>
-        <div className="pallette-list">
-          {palletteBlocks}
-        </div>
+      <div>
+        {pageOrLoadingScreen}
       </div>
     )
   }

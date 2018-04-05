@@ -1,6 +1,7 @@
 class Color < ApplicationRecord
   has_many :pallette_colors
   has_many :pallettes, through: :pallette_colors
+  before_create :update_hsl
 
   def self.random_data
     rand(16777215)
@@ -51,7 +52,7 @@ class Color < ApplicationRecord
     "#" + self.color_data.to_s(16).rjust(6, "0")
   end
 
-  def hsl
+  def update_hsl
     colors = self.normalized
     color_array = [colors[:red], colors[:green], colors[:blue]]
     max = color_array.max
@@ -79,7 +80,15 @@ class Color < ApplicationRecord
       if (hue > 1) then hue -= 1 end
     end
 
+    self.hue = hue
+    self.sat = sat
+    self.lum = lum
+
     {hue: hue, sat: sat, lum: lum}
+  end
+
+  def hsl
+    {hue: self.hue, sat: self.sat, lum: self.lum}
   end
 
   def as_json(options = {})

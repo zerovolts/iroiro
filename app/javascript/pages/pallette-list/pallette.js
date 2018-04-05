@@ -14,7 +14,7 @@ class Pallette extends React.Component {
   }
 
   focusColor(hexValue) {
-    this.props.focusColor(hexValue)
+    //this.props.focusColor(hexValue)
 
     this.setState({
       currentColor: hexValue
@@ -22,7 +22,7 @@ class Pallette extends React.Component {
   }
 
   unfocusColor() {
-    this.props.unfocusColor()
+    //this.props.unfocusColor()
 
     this.setState({
       currentColor: null

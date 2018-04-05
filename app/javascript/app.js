@@ -1,10 +1,14 @@
 import React from "react"
 
+import NavBar from "./components/nav-bar"
 import PalletteList from "./pages/pallette-list"
 
 const App = props => {
   return (
-    <PalletteList />
+    <div>
+      <NavBar />
+      <PalletteList />
+    </div>
   )
 }
 
